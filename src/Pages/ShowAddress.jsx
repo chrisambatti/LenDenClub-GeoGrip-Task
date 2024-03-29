@@ -1,31 +1,66 @@
+import "../assets/show.css";
+import { collection, setDoc, getDoc, doc } from "firebase/firestore";
+import { db } from "../firebase_config";
+import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+
 export default function ShowAddress() {
+  const [data, SetData] = useState([]);
+
+  // data fetching
+  const fetchData = async () => {
+    const docRef = doc(db, "Address", "UserAddress");
+    const docSnap = await getDoc(docRef);
+    if (docSnap.exists()) {
+      SetData(docSnap.data().address || []);
+      console.log(data);
+      // console.log("Data Loaded");
+    } else {
+      console.log("No such document!");
+    }
+  };
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
   return (
     <>
-      <h1>Address Updater</h1>
-      <form action="#" method="post">
-        <div class="form-group">
-          <label for="street">Street Address:</label>
-          <input type="text" id="street" name="street" required />
-        </div>
-        <div class="form-group">
-          <label for="city">City:</label>
-          <input type="text" id="city" name="city" required />
-        </div>
-        <div class="form-group">
-          <label for="state">State:</label>
-          <select id="state" name="state" required>
-            <option value="">Select State</option>
-            <option value="CA">California</option>
-            <option value="NY">New York</option>
-            <option value="TX">Texas</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label for="zip">Zip Code:</label>
-          <input type="text" id="zip" name="zip" required />
-        </div>
-        <input type="submit" value="Submit" />
-      </form>
+      <table className="ShowTable">
+        <thead>
+          <tr>
+            <th>Street</th>
+            <th>City</th>
+            <th>State</th>
+            <th>Zip</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          {data ? (
+            <>
+              {data.map((add) => {
+                return (
+                  <tr key={add.id}>
+                    <td>{add.street}</td>
+                    <td>{add.city}</td>
+                    <td>{add.state}</td>
+                    <td>{add.zipCode}</td>
+                    <td>
+                        <Link className="btns" to={`/edit/${add.id}`}>Edit</Link>
+                      <button className="btns">Delete</button>
+                    </td>
+                  </tr>
+                );
+              })}
+            </>
+          ) : (
+            <tr>
+              <td colSpan="5">No data available</td>
+            </tr>
+          )}
+        </tbody>
+      </table>
     </>
   );
 }

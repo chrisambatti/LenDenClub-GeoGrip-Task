@@ -1,20 +1,21 @@
 import { useState } from "react";
 import { db } from "../firebase_config";
+import {v4 as uuidv4} from 'uuid';
 import "../assets/add.css";
 // import './script1'
-import { collection, setDoc,getDoc,doc } from "firebase/firestore";
+import { collection, setDoc,getDoc,doc,updateDoc } from "firebase/firestore";
 
 export default function Add() {
   const [streetAddress, setStreetAddress] = useState("");
   const [city, setCity] = useState("");
   const [state, setState] = useState("");
   const [zipCode, setZipCode] = useState("");
-  const [prevData,setPrevData] = useState('')
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     console.log(streetAddress, city, state, zipCode);
-    const updatedData = {
+    const newObj = {
+      id: uuidv4(),
       "street":streetAddress,
       'city':city,
       'state':state,
@@ -22,24 +23,29 @@ export default function Add() {
     }
     const docRef = doc(db, "Address", "UserAddress");
     const docSnap = await getDoc(docRef);
-    if (docSnap.exists()) {
-      setPrevData(docSnap.data().address || [])
-      console.log(prevData);
-      await setDoc(doc(collection(db, 'Address'), 'UserAddress'), {
-        address: [...prevData, updatedData],
-      });
-      alert("Data Submitted")
+    
+    if(docSnap.exists()){
+      const prevData = docSnap.data().address || []; // Get the current array data or initialize an empty array
+      const updatedData = [...prevData, newObj]; // Add the new JSON object to the array
+
+      // Step 3: Write the updated document back to Firestore
+      await updateDoc(docRef, { address: updatedData });
+      console.log("added to Firestore successfully!");
+      alert("Added To Database")
     } else {
-      
-      console.log("No such document!");
+      console.log("Document does not exist.");
     }
+    window.location.href = '/show-address'
+
   };
 
   return (
     <>
       <div className="login-box">
         <p style={{ color: "white" }}>
-          Address <span className="fancy">Updator</span>
+           <span className="fancy">Add</span>
+           <br />
+           Address
         </p>
 
         <form onSubmit={handleSubmit}>
@@ -50,7 +56,6 @@ export default function Add() {
               required=""
               onInput={(text) => {
                 setStreetAddress(text.target.value);
-                console.log(streetAddress);
               }}
             />
             <label>Street Address</label>

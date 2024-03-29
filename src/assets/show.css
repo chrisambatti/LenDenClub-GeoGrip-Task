@@ -1,0 +1,18 @@
+table {
+  width: 80%;
+  margin: auto;
+  border: 2px solid;
+  padding: 10px;
+}
+
+th {
+  background: grey;
+  font-size: 20px;
+}
+.btns {
+  padding: 5px;
+  margin: 5px;
+  border-radius: 6px;
+  color: white;
+  background: black;
+}
