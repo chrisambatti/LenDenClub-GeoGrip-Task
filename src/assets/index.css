@@ -46,14 +46,6 @@ body{
     color: white;
   }
   
-  
-  
-  img {
-    display: flex;
-    width: 50%;
-    
-  }
-  
   a {
     text-decoration: none;
     white-space: nowrap;

@@ -3,13 +3,6 @@ import '../assets/index.css'
 export default function Home() {
   return (
     <>
-    
-  <div className="navbar navbar-expand-md bg-body-tertiary">
-    <div className="container-fluid">
-      <a href="/" style={{width: '30%'}} ><img src="logo.jpeg" alt="img"/></a>
-  </div>
-</div>
-
     <div className="container-fluid">
       <div className="row align-item-center justify-content-center">
         <div className="col=md-5 p-3"><br/><br/><br/>

@@ -1,5 +1,5 @@
 import "../assets/show.css";
-import { collection, setDoc, getDoc, doc } from "firebase/firestore";
+import { updateDoc, getDoc, doc } from "firebase/firestore";
 import { db } from "../firebase_config";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
@@ -20,6 +20,20 @@ export default function ShowAddress() {
     }
   };
 
+  const handleDelete = async (id)=>{
+    console.log(typeof(id));
+    const docRef = doc(db, "Address", "UserAddress");
+    const docSnap = await getDoc(docRef);
+    if (docSnap.exists()) {
+      let dataArray = docSnap.data().address;
+      console.log(dataArray);
+      dataArray = dataArray.filter((obj)=>{return obj.id != id})
+      console.log("After",dataArray);
+      await updateDoc(docRef, { address: dataArray });
+    }
+    fetchData()
+  }
+  
   useEffect(() => {
     fetchData();
   }, []);
@@ -48,7 +62,7 @@ export default function ShowAddress() {
                     <td>{add.zipCode}</td>
                     <td>
                         <Link className="btns" to={`/edit/${add.id}`}>Edit</Link>
-                      <button className="btns">Delete</button>
+                      <button className="btns" onClick={()=>{handleDelete(add.id)}}>Delete</button>
                     </td>
                   </tr>
                 );
