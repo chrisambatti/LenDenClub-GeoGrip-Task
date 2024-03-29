@@ -71,7 +71,7 @@ export default function Add() {
             />
             <label>City</label>
           </div>
-          <div className="use-box">
+          <div className="use-box select-wrapper">
             <select
               id="state"
               className="state"
@@ -80,7 +80,7 @@ export default function Add() {
                 setState(text.target.value);
               }}
             >
-              <option value="">Select State</option>
+              <option value="" hidden>Select State</option>
               <option value="MH">Maharastra</option>
               <option value="DL">Delhi</option>
               <option value="HY">Hydrabad</option>
