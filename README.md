@@ -63,11 +63,6 @@ The Address Updater project is a simple web application designed to manage addre
 ## Contributing 🤝
 Contributions to the Address Updater project are welcome! If you find any bugs or have suggestions for improvements, please open an issue or submit a pull request.
 
-## License 📜
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
 
 ### Built With
 
@@ -144,14 +139,6 @@ To deploy the Address Updater project to a live server, you can use various host
 
 Contributions to the Address Updater project are welcome! If you find any bugs, have suggestions for improvements, or want to add new features, please open an issue or submit a pull request on GitHub.
 
-## License
-
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.<!-- ROADMAP -->
-
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## Contact
@@ -159,7 +146,11 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 Christopher Philip Ambatti - [LinkedIn](https://www.linkedin.com/in/christopher-ambatti-014155247/) - chrisambatti123@gmail.com
 )
 
+## License 📜
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 - [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
 - [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
