@@ -2,7 +2,7 @@ import "../assets/add.css";
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { db } from "../firebase_config";
-navigate("/show-address")
+
 import { collection, setDoc, getDoc, doc, updateDoc } from "firebase/firestore";
 
 export default function Edit() {
@@ -34,7 +34,7 @@ export default function Edit() {
     // console.log(upDatedAddress);
     await updateDoc(docRef, {address: upDatedAddress});
     console.log("DONE");
-     navigate("/show-address")
+    window.location.href = '/show-address'
   };
 
   const fetchData = async () => {  
