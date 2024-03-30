@@ -8,7 +8,7 @@ export default function Home() {
         <div className="col=md-5 p-3"><br/><br/><br/>
 
           <h2 style={{fontSize: '8vh'}}>Seamlessly manage <br/>addresses</h2>
-          <p style={{fontSize: '40px'}}>
+          <p style={{fontSize: '40px', justifyContent:'left'}}>
             one click at a time.<i className="ri-cursor-fill" style={{color:'black'}}></i>
           </p>
 
@@ -21,7 +21,7 @@ export default function Home() {
 
       </div>    
     </div>
-    <br/><br/><br/><br/>
+    <br/><br/><br/><br/><br/><br/>
       <footer>
         <div className="footer__bar" style={{color: 'black', fontSize: '15px'}}>
             Made with <i className="ri-heart-fill" style= {{color: 'red'}}></i> by Christopher
