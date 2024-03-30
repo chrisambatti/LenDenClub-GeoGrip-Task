@@ -2,6 +2,7 @@ import "../assets/add.css";
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { db } from "../firebase_config";
+import { useNavigate } from "react-router-dom";
 
 import { collection, setDoc, getDoc, doc, updateDoc } from "firebase/firestore";
 
@@ -12,6 +13,8 @@ export default function Edit() {
   const [zipCode, setZipCode] = useState("");
   const params = useParams();
   const id = params.id;
+
+  const navigate = useNavigate()
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -34,7 +37,7 @@ export default function Edit() {
     // console.log(upDatedAddress);
     await updateDoc(docRef, {address: upDatedAddress});
     console.log("DONE");
-    window.location.href = '/show-address'
+    navigate("/show-address")
   };
 
   const fetchData = async () => {  
