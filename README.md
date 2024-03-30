@@ -74,7 +74,7 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 Built With 🛠️
 The Address Updater project is built using the following technologies:
 
-* [![HTML][HTML]][HTML-url]
+* [![html][html]][html-url]
 * [![React][React.js]][React-url]
 * [![Vue][Vue.js]][Vue-url]
 * [![Angular][Angular.io]][Angular-url]
