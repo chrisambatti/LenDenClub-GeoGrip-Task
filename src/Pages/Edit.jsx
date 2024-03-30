@@ -13,6 +13,8 @@ export default function Edit() {
   const params = useParams();
   const id = params.id;
 
+  const navigate = useNavigate()
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     const docRef = doc(db, "Address", `UserAddress`);
@@ -34,7 +36,7 @@ export default function Edit() {
     // console.log(upDatedAddress);
     await updateDoc(docRef, {address: upDatedAddress});
     console.log("DONE");
-    window.location.href = '/show-address'
+    navigate("/show-address")
   };
 
   const fetchData = async () => {  
