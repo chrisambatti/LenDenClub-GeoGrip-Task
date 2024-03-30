@@ -74,10 +74,10 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 Built With 🛠️
 The Address Updater project is built using the following technologies:
 
-HTML: The structure and layout of the web pages are created using HTML (HyperText Markup Language).
-CSS: Cascading Style Sheets (CSS) are used for styling and formatting the appearance of the web pages.
-JavaScript: JavaScript is used for client-side scripting to add interactivity and dynamic functionality to the application.
-Firebase: Firebase is used as the database to store and manage address information. It provides real-time database capabilities, authentication services, and cloud storage for seamless integration with the web application.
+**HTML**: The structure and layout of the web pages are created using HTML (HyperText Markup Language).
+**CSS**: Cascading Style Sheets (CSS) are used for styling and formatting the appearance of the web pages.
+**JavaScript**: JavaScript is used for client-side scripting to add interactivity and dynamic functionality to the application.
+**Firebase**: Firebase is used as the database to store and manage address information. It provides real-time database capabilities, authentication services, and cloud storage for seamless integration with the web application.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
