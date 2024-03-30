@@ -4,12 +4,15 @@ import {v4 as uuidv4} from 'uuid';
 import "../assets/add.css";
 // import './script1'
 import { collection, setDoc,getDoc,doc,updateDoc } from "firebase/firestore";
+import { useNavigate } from "react-router-dom";
 
 export default function Add() {
   const [streetAddress, setStreetAddress] = useState("");
   const [city, setCity] = useState("");
   const [state, setState] = useState("");
   const [zipCode, setZipCode] = useState("");
+
+  const navigate = useNavigate()
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -35,7 +38,7 @@ export default function Add() {
     } else {
       console.log("Document does not exist.");
     }
-    window.location.href = '/show-address'
+    navigate("/show-address")
 
   };
 

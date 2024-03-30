@@ -1,6 +1,8 @@
+import { useNavigate } from 'react-router-dom';
 import '../assets/index.css'
 // import './script'
 export default function Home() {
+  const navigate = useNavigate()
   return (
     <>
     <div className="container-fluid">
@@ -12,11 +14,10 @@ export default function Home() {
             one click at a time.<i className="ri-cursor-fill" style={{color:'black'}}></i>
           </p>
 
-          <a href="add">
+          
           <button className="click-btn">
-            <span>Click Here</span>
+            <span onClick={()=>{navigate("/add")}}>Click Here</span>
           </button>
-        </a>
         </div>
 
       </div>    
